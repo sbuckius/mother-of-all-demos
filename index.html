@@ -55,7 +55,7 @@
   .hero-eyebrow { display:inline-flex;align-items:center;gap:8px;padding:5px 16px;border-radius:999px;background:rgba(255,45,107,.1);border:1px solid rgba(255,130,180,.25);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--candy); }
   .pip { width:5px;height:5px;border-radius:50%;background:var(--hot);box-shadow:0 0 6px var(--hot);animation:breathe 2s ease-in-out infinite; }
   @keyframes breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.65)}}
-  .hero-title { font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(36px,8vw,78px);line-height:1.05;background:linear-gradient(120deg,var(--cream) 5%,var(--blush) 40%,var(--fuchsia) 70%,var(--gold) 95%);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.02em;max-width:900px; }
+  .hero-title { font-family:'Nunito',sans-serif;font-weight:900;font-style:normal;font-size:clamp(36px,8vw,78px);line-height:1.05;background:linear-gradient(120deg,var(--cream) 5%,var(--blush) 40%,var(--fuchsia) 70%,var(--gold) 95%);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.02em;max-width:900px; }
   .hero-byline { font-family:'Nunito',sans-serif;font-weight:800;font-size:clamp(12px,2vw,16px);color:var(--text-dim);letter-spacing:.2em;text-transform:uppercase; }
   .hero-byline span { color:var(--candy); }
   .hero-date-badge { display:inline-flex;align-items:center;gap:10px;padding:10px 22px;border-radius:14px;background:linear-gradient(135deg,rgba(255,45,107,.25),rgba(180,0,50,.3));border:1.5px solid rgba(255,45,107,.5);box-shadow:0 3px 20px rgba(255,45,107,.25);font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(12px,2vw,15px);letter-spacing:.1em;color:var(--blush);animation:pulseCard 3s ease-in-out infinite; }
@@ -89,6 +89,20 @@
   .body-card strong { color:var(--candy);font-weight:700; }
   .themes-row { display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:28px; }
   .theme-tag { padding:5px 14px;border-radius:999px;background:rgba(255,45,107,.1);border:1px solid rgba(255,130,180,.2);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--candy);font-family:'Nunito',sans-serif;font-weight:800; }
+
+  /* INCLUDES LIST */
+  .includes-intro { font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(15px,2.2vw,19px);color:var(--candy);text-align:center;margin-bottom:22px;line-height:1.6; }
+  .includes-list { list-style:none;columns:2;column-gap:26px; }
+  @media(max-width:640px){.includes-list{columns:1}}
+  .includes-list li { position:relative;padding-left:20px;font-size:clamp(12px,1.6vw,14px);color:rgba(255,200,224,.82);line-height:1.65;letter-spacing:.02em;break-inside:avoid;margin-bottom:8px; }
+  .includes-list li::before { content:'✦';position:absolute;left:0;top:1px;color:var(--hot);font-size:10px; }
+  .includes-list li.pink-item::before { content:'♡';color:var(--candy); }
+  .includes-outro { font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(13px,1.9vw,16px);color:var(--gold);text-align:center;margin-top:24px; }
+
+  /* VIDEO */
+  .video-card { background:rgba(15,0,8,.7);border:1.5px solid var(--card-border-bright);border-radius:22px;box-shadow:var(--soft-glow);padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;position:relative;overflow:hidden; }
+  .video-card::before { content:'';position:absolute;top:0;left:10%;right:10%;height:1.5px;background:linear-gradient(90deg,transparent,var(--candy) 35%,var(--hot) 50%,var(--candy) 65%,transparent);box-shadow:0 0 12px var(--rose);border-radius:999px; }
+  .video-note { font-size:11px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;font-family:'Nunito',sans-serif;font-weight:800; }
 
   /* GALLERY */
   .gallery-section { position:relative;z-index:10;max-width:1140px;margin:0 auto 80px;padding:0 clamp(16px,4vw,56px); }
@@ -232,7 +246,7 @@
     <div class="section-title">An Immersive Multimedia Experience</div>
   </div>
   <div class="body-card">
-    <p>Step into a zany, immersive, live, multimedia performance featuring a <strong>female tech CEO</strong> who embodies female-coded robots, memorializes patents by women for textiles and computation devices, performs AI-generated instructions for mechanized hip-hop domestic labor, trains Mechanical Turks in DEI tasks, babysits unruly AI bots, dictates the 1870 article by Matilda Gage, <strong>"Woman as Inventor,"</strong> and broadcasts the audio of Harlow Shapley, the <strong>"kilo-girls" fabricator</strong>.</p>
+    <p>Step into a zany, immersive, live, multimedia performance featuring a <strong>female tech CEO</strong> who embodies female-coded robots, memorializes patents by women for textiles and computation devices, performs AI-generated instructions for mechanized domestic labor, trains Mechanical Turks in DEI tasks, babysits unruly AI bots, includes the 1870 article by Matilda Gage, <strong>"Woman as Inventor,"</strong> and broadcasts the audio of Harlow Shapley, the <strong>"kilo-girls" fabricator</strong>.</p>
     <p>This interactive experience—blending irony and sincerity, epic blunders and meager successes, chaotic messes and illogical order—will leave you questioning power structures in technology, past and present, pondering the <strong>Matilda Effect</strong>—the ongoing erasure and undervaluing of women's contributions in tech, and yearning for technology made with <strong>CARE</strong> for humans and the world.</p>
   </div>
   <div class="themes-row">
@@ -245,6 +259,97 @@
     <span class="theme-tag">Kilo-Girls</span>
     <span class="theme-tag">Participatory</span>
     <span class="theme-tag">Computational History</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- WHAT'S INCLUDED -->
+<div class="description-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">What's Included</div>
+    <div class="section-title">Everything in the Demo</div>
+  </div>
+  <div class="body-card">
+    <div class="includes-intro">The Mother of All Demos includes all of the following!</div>
+    <ul class="includes-list">
+      <li>504 patents by women</li>
+      <li>important excerpt from the interview with Harlow Shapley about the term kilo-girl hours</li>
+      <li>Woman as Inventor read aloud</li>
+      <li>over 50 images generated by AI of what a CEO looks like</li>
+      <li>42 carebots</li>
+      <li>42 Human Intelligence Tasks (HITs)</li>
+      <li>over 40 photographs of women working with machines</li>
+      <li>images of The Mother of All Demos</li>
+      <li>over 20 images of Human Computers</li>
+      <li>a robot on stage</li>
+      <li>a CEO on stage</li>
+      <li>a human mother on stage</li>
+      <li>audience directions for robot</li>
+      <li>payment of audience workers</li>
+      <li>computations by human computers</li>
+      <li>7 photographs showing techno-presentation labor</li>
+      <li>over 40 images of humanoid robots doing domestic labor</li>
+      <li>Rope Mothers</li>
+      <li>Little Old Ladies</li>
+      <li class="pink-item">pink broom</li>
+      <li class="pink-item">pink vacuum</li>
+      <li class="pink-item">4 pink laundry baskets</li>
+      <li class="pink-item">pink ironing board</li>
+      <li class="pink-item">over 10 pink plastic plants in pots</li>
+      <li class="pink-item">pink brush</li>
+      <li class="pink-item">pink teapot</li>
+      <li class="pink-item">pink sofa cover</li>
+      <li class="pink-item">pink money box filled with pennies</li>
+      <li class="pink-item">pink plates</li>
+      <li class="pink-item">pink cups</li>
+      <li class="pink-item">pink bowls</li>
+      <li class="pink-item">pink watering can</li>
+    </ul>
+    <div class="includes-outro">…among other things!!</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PERFORMANCE STILLS -->
+<div class="gallery-section">
+  <div class="gallery-header">
+    <div class="section-eyebrow">July 3, 2026 · San Jose Museum of Art</div>
+    <div class="section-title">Performance Stills</div>
+  </div>
+  <div class="img-grid cols-3" id="stillsGrid"></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- VIDEO PREVIEW -->
+<div class="description-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">Video</div>
+    <div class="section-title">Watch a Preview</div>
+  </div>
+  <div class="video-card">
+    <div class="video-note">This is a preview</div>
+    <a class="hero-link-main" href="https://vimeo.com/VIDEO_ID" target="_blank" rel="noopener">Watch Preview on Vimeo ↗</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- BADGES · POSTER · RESIST · MARKETING -->
+<div class="gallery-section">
+  <div class="gallery-header">
+    <div class="section-eyebrow">Ephemera</div>
+    <div class="section-title">Badges, Poster &amp; Museum Marketing</div>
+  </div>
+  <div class="img-grid cols-3">
+    <div class="img-cell"><img src="images/badge_01.png" alt="CAREtech worker ID badge — front" loading="lazy"><div class="img-meta"><div class="img-caption">Worker ID Badge · Front</div></div></div>
+    <div class="img-cell"><img src="images/badge_02.png" alt="CAREtech worker ID badge — back" loading="lazy"><div class="img-meta"><div class="img-caption">Worker ID Badge · Back</div></div></div>
+    <div class="img-cell"><img src="images/poster_01.png" alt="The Mother of All Demos — poster" loading="lazy"><div class="img-meta"><div class="img-caption">Poster</div></div></div>
+    <div class="img-cell"><img src="images/resist_01.png" alt="Option to resist the work" loading="lazy"><div class="img-meta"><div class="img-caption">Option to Resist the Work</div></div></div>
+    <div class="img-cell"><img src="images/weave_01.png" alt="Weave" loading="lazy"><div class="img-meta"><div class="img-caption">Weave</div></div></div>
+    <div class="img-cell"><img src="images/marketing_01.png" alt="Marketing from the museum" loading="lazy"><div class="img-meta"><div class="img-caption">Marketing from the Museum</div></div></div>
   </div>
 </div>
 
@@ -732,7 +837,35 @@
     if (e.key === 'ArrowRight') next();
   });
 
-  buildIndex();
+  // ── Auto-load Performance Stills ──
+  // Probes images/mother_of_all_demos_01.png, _02.png, ... and keeps adding
+  // them to the grid until a number is missing. To add stills, just drop
+  // sequentially numbered .png files into the images folder — no HTML edits.
+  function loadStills(onDone) {
+    const grid = document.getElementById('stillsGrid');
+    if (!grid) { onDone(); return; }
+    let n = 1;
+    function tryNext() {
+      const num = String(n).padStart(2, '0');
+      const src = 'images/mother_of_all_demos_' + num + '.png';
+      const probe = new Image();
+      probe.onload = () => {
+        const cell = document.createElement('div');
+        cell.className = 'img-cell land';
+        cell.innerHTML =
+          '<img src="' + src + '" alt="The Mother of All Demos — performance still ' + num + '" loading="lazy">' +
+          '<div class="img-meta"><div class="img-caption">Performance Still · ' + num + '</div></div>';
+        grid.appendChild(cell);
+        n++;
+        tryNext();
+      };
+      probe.onerror = onDone; // first missing number = end of the series
+      probe.src = src;
+    }
+    tryNext();
+  }
+
+  loadStills(buildIndex);
 })();
 </script>
 </body>
