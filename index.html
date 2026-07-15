@@ -104,6 +104,24 @@
   .video-card::before { content:'';position:absolute;top:0;left:10%;right:10%;height:1.5px;background:linear-gradient(90deg,transparent,var(--candy) 35%,var(--hot) 50%,var(--candy) 65%,transparent);box-shadow:0 0 12px var(--rose);border-radius:999px; }
   .video-note { font-size:11px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;font-family:'Nunito',sans-serif;font-weight:800; }
 
+  /* TECH PACK DROPDOWN */
+  .techpack { max-width:760px;margin:0 auto; }
+  .techpack details { background:rgba(15,0,8,.7);border:1.5px solid var(--card-border-bright);border-radius:22px;box-shadow:var(--soft-glow);overflow:hidden; }
+  .techpack summary { list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;padding:18px 28px;font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(12px,1.8vw,15px);letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:linear-gradient(135deg,rgba(255,45,107,.4),rgba(180,0,50,.5));transition:all .2s ease;user-select:none; }
+  .techpack summary::-webkit-details-marker { display:none; }
+  .techpack summary:hover { background:linear-gradient(135deg,rgba(255,45,107,.6),rgba(180,0,50,.7)); }
+  .techpack summary .chev { font-size:12px;transition:transform .25s ease;color:var(--gold); }
+  .techpack details[open] summary .chev { transform:rotate(180deg); }
+  .techpack-body { padding:clamp(22px,3vw,36px) clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:20px; }
+  .tp-group h4 { font-family:'Nunito',sans-serif;font-weight:900;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--candy);margin-bottom:8px;display:flex;align-items:center;gap:8px; }
+  .tp-group h4::before { content:'✦';color:var(--hot);font-size:10px; }
+  .tp-group ul { list-style:none;display:flex;flex-direction:column;gap:5px; }
+  .tp-group li { position:relative;padding-left:16px;font-size:13px;color:rgba(255,200,224,.82);line-height:1.7; }
+  .tp-group li::before { content:'·';position:absolute;left:2px;color:var(--hot);font-weight:900; }
+  .tp-download { display:flex;justify-content:center;margin-top:6px; }
+  .tp-diagram { background:rgba(10,0,6,.5);border:1px solid var(--card-border);border-radius:14px;padding:14px; }
+  .tp-diagram svg { width:100%;height:auto;display:block; }
+
   /* GALLERY */
   .gallery-section { position:relative;z-index:10;max-width:1140px;margin:0 auto 80px;padding:0 clamp(16px,4vw,56px); }
   .gallery-header { text-align:center;margin-bottom:24px; }
@@ -289,6 +307,7 @@
       <li>payment of audience workers</li>
       <li>computations by human computers</li>
       <li>7 photographs showing techno-presentation labor</li>
+      <li>live feed video of head-mounted camera showing robot's view</li>
       <li>over 40 images of humanoid robots doing domestic labor</li>
       <li>Rope Mothers</li>
       <li>Little Old Ladies</li>
@@ -332,6 +351,179 @@
   <div class="video-card">
     <div class="video-note">This is a preview</div>
     <a class="hero-link-main" href="https://vimeo.com/VIDEO_ID" target="_blank" rel="noopener">Watch Preview on Vimeo ↗</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- HOST THIS PERFORMANCE · TECH PACK -->
+<div class="description-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">Bring It to Your Venue</div>
+    <div class="section-title">Host This Performance</div>
+  </div>
+  <div class="techpack">
+    <details>
+      <summary>View the Tech Pack <span class="chev">▼</span></summary>
+      <div class="techpack-body">
+
+        <p style="font-size:12px;color:var(--text-dim);text-align:center;line-height:1.7;font-style:italic;">The following categories describe what is desired from the venue, what is optional, and what the artist brings.</p>
+
+        <div class="tp-group">
+          <h4>Space &amp; Stage</h4>
+          <ul>
+            <li>Stage or space that is about 8 ft by 16 ft</li>
+            <li>Space on stage for pink domestic objects (minimum 4 ft x 4 ft)</li>
+            <li>Space for a small pink desk that is 24 inches by 24 inches footprint</li>
+            <li>Floor that I can place pink gaffer tape</li>
+          </ul>
+        </div>
+
+        <div class="tp-group">
+          <h4>A/V &amp; Technology</h4>
+          <ul>
+            <li>Podium with computer hook up to one projector or monitor and microphone to speakers. HDMI connection.</li>
+            <li>2 monitors or 2 projectors with different feeds from 2 different laptops. Only one of these should have sound output that will come from a video playing on one of the computers. I supply the laptops.</li>
+            <li>HDMI connection to both monitors</li>
+            <li>Microphone for me to speak into</li>
+            <li>Reliable wifi that I can connect to by phone and computer</li>
+          </ul>
+        </div>
+
+        <div class="tp-group">
+          <h4>Audience</h4>
+          <ul>
+            <li>Audience seating</li>
+            <li>Walkway into audience for me to pay the audience members</li>
+            <li>Distribution of badges. Can be on a table where I place pink baskets or can be on the chairs.</li>
+          </ul>
+        </div>
+
+        <div class="tp-group">
+          <h4>Timing</h4>
+          <ul>
+            <li>Duration of performance as is: 45 minutes. 15 minutes Q &amp; A (optional).</li>
+          </ul>
+        </div>
+
+        <div class="tp-group">
+          <h4>Optional</h4>
+          <ul>
+            <li>1 or 2 metal sign holders for 22 x 28 sign. I have the printed sign.</li>
+            <li>2 snake plants</li>
+            <li>Pink lights that shine up and hit the podium</li>
+          </ul>
+        </div>
+
+        <div class="tp-group">
+          <h4>Items That I Bring</h4>
+          <ul>
+            <li>Costumes</li>
+            <li>Pink desk</li>
+            <li>2 computers</li>
+            <li>iPhone and head mount</li>
+            <li>Pink domestic objects</li>
+            <li>Pink gaffer tape</li>
+            <li>Pink money box with pennies</li>
+          </ul>
+        </div>
+
+        <div class="tp-group">
+          <h4>Stage Layout</h4>
+          <div class="tp-diagram">
+            <svg viewBox="0 0 920 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stage layout diagram for The Mother of All Demos">
+              <style>
+                .dg-label { font-family:'Nunito',sans-serif; font-weight:900; }
+                .dg-dark { fill:#3d0018; }
+                .dg-light { fill:#fff5f8; }
+              </style>
+
+              <!-- Stage -->
+              <rect x="180" y="60" width="620" height="340" rx="14" fill="rgba(255,160,200,.08)" stroke="rgba(255,100,160,.55)" stroke-width="2"/>
+              <text x="490" y="52" text-anchor="middle" class="dg-label" font-size="12" fill="rgba(255,200,224,.55)" letter-spacing="3">STAGE · 8 FT × 16 FT</text>
+
+              <!-- Pink desk -->
+              <rect x="210" y="85" width="82" height="76" rx="8" fill="#ffb3cf" stroke="#ff5c8a" stroke-width="1.5"/>
+              <text x="251" y="118" text-anchor="middle" class="dg-label dg-dark" font-size="14">pink</text>
+              <text x="251" y="136" text-anchor="middle" class="dg-label dg-dark" font-size="14">desk</text>
+
+              <!-- Small Monitor -->
+              <rect x="320" y="85" width="180" height="70" rx="8" fill="#ff1f80" stroke="#ffb3cf" stroke-width="1.5"/>
+              <text x="410" y="126" text-anchor="middle" class="dg-label dg-light" font-size="16">Small Monitor</text>
+
+              <!-- Big Monitor -->
+              <rect x="530" y="85" width="240" height="70" rx="8" fill="#ff2d6b" stroke="#ffb3cf" stroke-width="1.5"/>
+              <text x="650" y="127" text-anchor="middle" class="dg-label dg-light" font-size="19">Big Monitor</text>
+
+              <!-- Pink domestic objects -->
+              <rect x="370" y="180" width="165" height="150" rx="10" fill="#ff85b3" stroke="#ff2d6b" stroke-width="1.5"/>
+              <text x="452" y="238" text-anchor="middle" class="dg-label dg-dark" font-size="15">pink</text>
+              <text x="452" y="257" text-anchor="middle" class="dg-label dg-dark" font-size="15">domestic</text>
+              <text x="452" y="276" text-anchor="middle" class="dg-label dg-dark" font-size="15">objects</text>
+
+              <!-- Podium -->
+              <rect x="280" y="312" width="82" height="76" rx="8" fill="#6f001e" stroke="#ff5c8a" stroke-width="1.5"/>
+              <text x="321" y="355" text-anchor="middle" class="dg-label dg-light" font-size="14">Podium</text>
+
+              <!-- Snake plants -->
+              <circle cx="228" cy="358" r="33" fill="rgba(0,229,204,.22)" stroke="#00e5cc" stroke-width="1.5"/>
+              <text x="228" y="354" text-anchor="middle" class="dg-label" font-size="11" fill="#00e5cc">snake</text>
+              <text x="228" y="368" text-anchor="middle" class="dg-label" font-size="11" fill="#00e5cc">plant</text>
+              <circle cx="748" cy="358" r="33" fill="rgba(0,229,204,.22)" stroke="#00e5cc" stroke-width="1.5"/>
+              <text x="748" y="354" text-anchor="middle" class="dg-label" font-size="11" fill="#00e5cc">snake</text>
+              <text x="748" y="368" text-anchor="middle" class="dg-label" font-size="11" fill="#00e5cc">plant</text>
+
+              <!-- Left stairs -->
+              <rect x="118" y="170" width="60" height="210" rx="8" fill="rgba(255,200,224,.14)" stroke="rgba(255,160,200,.35)" stroke-width="1.5"/>
+              <text x="148" y="275" text-anchor="middle" class="dg-label" font-size="17" fill="rgba(255,200,224,.75)" transform="rotate(90 148 275)">stairs</text>
+
+              <!-- Bottom stairs -->
+              <rect x="400" y="402" width="180" height="56" rx="8" fill="rgba(255,200,224,.14)" stroke="rgba(255,160,200,.35)" stroke-width="1.5"/>
+              <text x="490" y="437" text-anchor="middle" class="dg-label" font-size="17" fill="rgba(255,200,224,.75)">stairs</text>
+
+              <!-- Speakers -->
+              <rect x="14" y="60" width="88" height="70" rx="8" fill="rgba(255,200,224,.14)" stroke="rgba(255,160,200,.35)" stroke-width="1.5"/>
+              <text x="58" y="100" text-anchor="middle" class="dg-label" font-size="13" fill="rgba(255,200,224,.75)">speaker</text>
+              <rect x="818" y="60" width="88" height="70" rx="8" fill="rgba(255,200,224,.14)" stroke="rgba(255,160,200,.35)" stroke-width="1.5"/>
+              <text x="862" y="100" text-anchor="middle" class="dg-label" font-size="13" fill="rgba(255,200,224,.75)">speaker</text>
+
+              <!-- Metal sign holders (22 x 28 signs, to scale) -->
+              <rect x="22" y="326" width="71" height="90" rx="5" fill="#ffb3cf" stroke="#ff2d6b" stroke-width="1.5"/>
+              <text x="57" y="362" text-anchor="middle" class="dg-label dg-dark" font-size="11">22×28</text>
+              <text x="57" y="377" text-anchor="middle" class="dg-label dg-dark" font-size="11">sign</text>
+              <rect x="826" y="326" width="71" height="90" rx="5" fill="#ffb3cf" stroke="#ff2d6b" stroke-width="1.5"/>
+              <text x="861" y="362" text-anchor="middle" class="dg-label dg-dark" font-size="11">22×28</text>
+              <text x="861" y="377" text-anchor="middle" class="dg-label dg-dark" font-size="11">sign</text>
+
+              <!-- Audience seating: chairs drawn to scale (~1.5 ft footprints), center aisle ~3 ft -->
+              <defs>
+                <rect id="dg-chair" width="56" height="56" rx="9" fill="rgba(255,200,224,.12)" stroke="rgba(255,160,200,.35)" stroke-width="1.5"/>
+              </defs>
+              <text x="490" y="482" text-anchor="middle" class="dg-label" font-size="12" fill="rgba(255,200,224,.5)" letter-spacing="3">AUDIENCE SEATING</text>
+
+              <!-- Row 1 -->
+              <use href="#dg-chair" x="180" y="494"/><use href="#dg-chair" x="244" y="494"/><use href="#dg-chair" x="308" y="494"/><use href="#dg-chair" x="372" y="494"/>
+              <use href="#dg-chair" x="552" y="494"/><use href="#dg-chair" x="616" y="494"/><use href="#dg-chair" x="680" y="494"/><use href="#dg-chair" x="744" y="494"/>
+              <!-- Row 2 -->
+              <use href="#dg-chair" x="180" y="558"/><use href="#dg-chair" x="244" y="558"/><use href="#dg-chair" x="308" y="558"/><use href="#dg-chair" x="372" y="558"/>
+              <use href="#dg-chair" x="552" y="558"/><use href="#dg-chair" x="616" y="558"/><use href="#dg-chair" x="680" y="558"/><use href="#dg-chair" x="744" y="558"/>
+              <!-- Row 3 -->
+              <use href="#dg-chair" x="180" y="622"/><use href="#dg-chair" x="244" y="622"/><use href="#dg-chair" x="308" y="622"/><use href="#dg-chair" x="372" y="622"/>
+              <use href="#dg-chair" x="552" y="622"/><use href="#dg-chair" x="616" y="622"/><use href="#dg-chair" x="680" y="622"/><use href="#dg-chair" x="744" y="622"/>
+
+              <!-- Center aisle -->
+              <text x="490" y="590" text-anchor="middle" class="dg-label" font-size="13" fill="rgba(255,200,224,.45)" letter-spacing="4" transform="rotate(90 490 590)">AISLE</text>
+            </svg>
+          </div>
+          <p style="font-size:11px;color:var(--text-dim);font-style:italic;margin-top:10px;text-align:center;line-height:1.6;">Note: the two screens shown could be two projectors or two monitors.</p>
+        </div>
+
+        <div class="tp-download">
+          <a class="hero-link-main" href="files/tech_pack.pdf" target="_blank" rel="noopener">Download Full Tech Pack (PDF) ↓</a>
+        </div>
+
+      </div>
+    </details>
   </div>
 </div>
 
