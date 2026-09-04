@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Invent It: Inspired by Women's Patents · Sarah Buckius</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose:    #ff5c8a;
+    --hot:     #ff2d6b;
+    --candy:   #ff85b3;
+    --blush:   #ffb3cf;
+    --cream:   #fff5f8;
+    --maroon:  #6f001e;
+    --fuchsia: #ff1f80;
+    --gold:    #ffd700;
+    --gold-dim:#c9a800;
+    --teal:    #00e5cc;
+    --teal-dim:#009e8e;
+    --bg:      #1a0012;
+    --card-border: rgba(255,160,200,.22);
+    --card-border-bright: rgba(255,100,160,.55);
+    --soft-glow: 0 4px 30px rgba(255,45,107,.2), 0 1px 0 rgba(255,160,200,.12) inset;
+    --text-dim:  rgba(255,200,224,.55);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-family: 'Quicksand', sans-serif; font-weight: 600; color: var(--cream); background: var(--bg); -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+  body { min-height: 100vh; padding-bottom: 60px; overflow-x: hidden; }
+
+  .bg-layer { position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 10% 15%,rgba(180,0,50,.4) 0%,transparent 55%),radial-gradient(ellipse 60% 70% at 90% 85%,rgba(120,0,30,.35) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 50% 50%,rgba(255,45,107,.08) 0%,transparent 65%),linear-gradient(160deg,#220008,#180008 45%,#120005); }
+  .orb { position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(70px); }
+  .orb-1 { width:500px;height:500px;background:var(--maroon);opacity:.25;top:-120px;left:-100px;animation:drift1 20s ease-in-out infinite; }
+  .orb-2 { width:400px;height:400px;background:#c40032;opacity:.2;bottom:-80px;right:-80px;animation:drift2 24s ease-in-out infinite; }
+  .orb-3 { width:300px;height:300px;background:var(--hot);opacity:.12;top:35%;left:55%;animation:drift3 16s ease-in-out infinite; }
+  .orb-4 { width:200px;height:200px;background:var(--candy);opacity:.15;top:10%;right:20%;animation:drift2 19s ease-in-out infinite reverse; }
+  @keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(50px,35px)}}
+  @keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-35px,-25px)}}
+  @keyframes drift3{0%,100%{transform:translate(0,0)}33%{transform:translate(-25px,18px)}66%{transform:translate(18px,-12px)}}
+  .sparkles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .sp{position:absolute;opacity:0;animation:floatUp linear infinite;}
+  @keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(.6) rotate(0deg)}15%{opacity:.7}85%{opacity:.4}100%{opacity:0;transform:translateY(-140px) scale(1.1) rotate(180deg)}}
+
+  /* NAV */
+  .nav-bar { position:relative;z-index:20;padding:28px clamp(20px,5vw,72px) 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px; }
+  .back-link { display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border-radius:999px;background:rgba(255,45,107,.08);border:1px solid rgba(255,130,180,.2);color:var(--candy);text-decoration:none;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-family:'Nunito',sans-serif;font-weight:800;transition:all .18s ease; }
+  .back-link:hover { background:rgba(255,45,107,.22);color:var(--cream);border-color:var(--hot); }
+  .brand { display:flex;align-items:center;gap:10px; }
+  .brand-icon { width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,rgba(255,45,107,.3),rgba(180,0,50,.4));border:1.5px solid var(--card-border-bright);box-shadow:var(--soft-glow);display:flex;align-items:center;justify-content:center;font-size:19px;animation:wobble 4s ease-in-out infinite; }
+  @keyframes wobble{0%,100%{transform:rotate(-2deg) scale(1)}25%{transform:rotate(1deg) scale(1.04)}50%{transform:rotate(-1deg) scale(1)}75%{transform:rotate(2deg) scale(1.03)}}
+  .brand-name { font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;background:linear-gradient(90deg,var(--blush),var(--fuchsia) 55%,var(--candy));-webkit-background-clip:text;background-clip:text;color:transparent; }
+
+  /* HERO */
+  .hero { position:relative;z-index:10;padding:56px clamp(20px,6vw,80px) 0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;margin-bottom:34px; }
+  .hero-eyebrow { display:inline-flex;align-items:center;gap:8px;padding:5px 16px;border-radius:999px;background:rgba(255,45,107,.1);border:1px solid rgba(255,130,180,.25);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--candy); }
+  .pip { width:5px;height:5px;border-radius:50%;background:var(--hot);box-shadow:0 0 6px var(--hot);animation:breathe 2s ease-in-out infinite; }
+  @keyframes breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.65)}}
+  .hero-title { font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(36px,8vw,78px);line-height:1.05;background:linear-gradient(120deg,var(--cream) 5%,var(--blush) 40%,var(--fuchsia) 70%,var(--gold) 95%);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.02em;max-width:900px; }
+  .hero-subtitle { font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(15px,3vw,26px);line-height:1.2;color:var(--candy);letter-spacing:-.01em;margin-top:-6px; }
+  .hero-patentline { font-family:'Nunito',sans-serif;font-weight:800;font-size:clamp(10px,1.6vw,12px);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dim); }
+  .hero-byline { font-family:'Nunito',sans-serif;font-weight:800;font-size:clamp(12px,2vw,16px);color:var(--text-dim);letter-spacing:.2em;text-transform:uppercase; }
+  .hero-byline span { color:var(--candy); }
+  .hero-date-badge { display:inline-flex;align-items:center;gap:10px;padding:10px 22px;border-radius:14px;background:linear-gradient(135deg,rgba(255,45,107,.25),rgba(180,0,50,.3));border:1.5px solid rgba(255,45,107,.5);box-shadow:0 3px 20px rgba(255,45,107,.25);font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(12px,2vw,15px);letter-spacing:.1em;color:var(--blush);animation:pulseCard 3s ease-in-out infinite; }
+  @keyframes pulseCard{0%,100%{box-shadow:0 3px 20px rgba(255,45,107,.25)}50%{box-shadow:0 3px 30px rgba(255,45,107,.55)}}
+  .star { color:var(--gold);font-size:16px;animation:spinStar 6s linear infinite; }
+  @keyframes spinStar{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+  .hero-links { display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px; }
+  .hero-link-main { display:inline-flex;align-items:center;gap:7px;padding:11px 22px;border-radius:14px;background:linear-gradient(135deg,rgba(255,45,107,.4),rgba(180,0,50,.5));border:1.5px solid rgba(255,45,107,.65);box-shadow:0 4px 20px rgba(255,45,107,.28);color:var(--cream);text-decoration:none;font-family:'Nunito',sans-serif;font-weight:900;font-size:11px;letter-spacing:.12em;text-transform:uppercase;transition:all .2s cubic-bezier(.34,1.56,.64,1); }
+  .hero-link-main:hover { background:linear-gradient(135deg,rgba(255,45,107,.7),rgba(180,0,50,.8));box-shadow:0 6px 28px rgba(255,45,107,.55);transform:translateY(-2px) scale(1.04); }
+
+  /* DROP IN RIBBON */
+  .ribbon { position:relative;z-index:10;max-width:820px;margin:0 auto 56px;padding:0 clamp(16px,4vw,40px); }
+  .ribbon-inner { display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 22px;padding:16px 24px;border-radius:16px;background:linear-gradient(135deg,rgba(255,215,0,.1),rgba(255,45,107,.12));border:1.5px solid rgba(255,215,0,.35);text-align:center; }
+  .ribbon-item { font-family:'Nunito',sans-serif;font-weight:900;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold); }
+  .ribbon-item span { color:var(--blush); }
+
+  /* DIVIDER */
+  .divider { width:min(90vw,640px);height:1.5px;background:linear-gradient(90deg,transparent,var(--card-border-bright) 30%,var(--hot) 50%,var(--card-border-bright) 70%,transparent);border-radius:999px;box-shadow:0 0 12px rgba(255,45,107,.3);margin:0 auto 56px;position:relative;z-index:10; }
+
+  /* SECTION SHELL */
+  .section-eyebrow { font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--hot);font-family:'Nunito',sans-serif;font-weight:900;margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:8px; }
+  .section-eyebrow::before, .section-eyebrow::after { content:'✦';font-size:8px;opacity:.6; }
+  .section-title { font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(18px,3vw,28px);background:linear-gradient(120deg,var(--cream) 10%,var(--blush) 50%,var(--fuchsia) 85%);-webkit-background-clip:text;background-clip:text;color:transparent; }
+  .description-section { position:relative;z-index:10;max-width:900px;margin:0 auto 72px;padding:0 clamp(16px,4vw,48px); }
+  .wide-section { position:relative;z-index:10;max-width:1140px;margin:0 auto 72px;padding:0 clamp(16px,4vw,56px); }
+  .desc-header { text-align:center;margin-bottom:32px; }
+  .body-card { background:rgba(15,0,8,.65);border:1.5px solid var(--card-border);border-radius:22px;box-shadow:var(--soft-glow);padding:clamp(22px,3vw,40px) clamp(22px,3vw,44px);position:relative;overflow:hidden; }
+  .body-card::before { content:'';position:absolute;top:0;left:10%;right:10%;height:1.5px;background:linear-gradient(90deg,transparent,var(--candy) 35%,var(--hot) 50%,var(--candy) 65%,transparent);box-shadow:0 0 12px var(--rose);border-radius:999px; }
+  .body-card p { font-size:clamp(13px,1.7vw,15px);color:rgba(255,200,224,.82);line-height:1.9;letter-spacing:.02em;margin-bottom:18px; }
+  .body-card p:last-child { margin-bottom:0; }
+  .body-card strong { color:var(--candy);font-weight:700; }
+  .themes-row { display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:28px; }
+  .theme-tag { padding:5px 14px;border-radius:999px;background:rgba(255,45,107,.1);border:1px solid rgba(255,130,180,.2);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--candy);font-family:'Nunito',sans-serif;font-weight:800; }
+
+  /* NAMESAKE */
+  .namesake { display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:center; }
+  @media(max-width:640px){.namesake{grid-template-columns:1fr;gap:18px}}
+  .namesake-plate { border-radius:14px;border:1.5px solid var(--card-border-bright);background:rgba(255,240,246,.9);padding:12px;display:flex;align-items:center;justify-content:center;min-height:150px; }
+  .namesake-plate img { width:100%;display:block; }
+  .namesake-plate .fallback { font-family:'Nunito',sans-serif;font-weight:900;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8a5570;text-align:center;line-height:1.7; }
+  .namesake-body p { margin-bottom:14px; }
+
+  /* PULL QUOTE */
+  .poem-section { position:relative;z-index:10;max-width:680px;margin:0 auto 72px;padding:0 clamp(16px,4vw,40px);text-align:center; }
+  .poem-card { background:rgba(15,0,8,.7);border:1.5px solid var(--card-border-bright);border-radius:22px;box-shadow:var(--soft-glow);padding:clamp(28px,4vw,48px) clamp(24px,4vw,52px);position:relative;overflow:hidden; }
+  .poem-card::before { content:'';position:absolute;top:0;left:10%;right:10%;height:1.5px;background:linear-gradient(90deg,transparent,var(--candy) 35%,var(--hot) 50%,var(--candy) 65%,transparent);box-shadow:0 0 12px var(--rose);border-radius:999px; }
+  .poem-text { font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:clamp(15px,2.2vw,20px);color:var(--blush);line-height:2; }
+  .poem-text em { color:var(--gold);font-style:normal; }
+  .poem-attr { font-family:'Nunito',sans-serif;font-weight:800;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);margin-top:18px; }
+
+  /* FAST FACTS */
+  .facts-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px; }
+  .fact { background:rgba(15,0,8,.65);border:1.5px solid var(--card-border);border-radius:16px;box-shadow:var(--soft-glow);padding:18px 16px;text-align:center;transition:all .22s ease; }
+  .fact:hover { border-color:var(--card-border-bright);transform:translateY(-3px); }
+  .fact-label { font-family:'Nunito',sans-serif;font-weight:900;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--hot);margin-bottom:8px; }
+  .fact-value { font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(15px,2vw,20px);color:var(--blush);line-height:1.3; }
+  .fact-note { font-size:10px;color:var(--text-dim);margin-top:6px;line-height:1.5; }
+
+  /* STATIONS */
+  .steps-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px; }
+  .step { background:rgba(15,0,8,.68);border:1.5px solid var(--card-border);border-radius:18px;box-shadow:var(--soft-glow);padding:22px 22px 20px;display:flex;flex-direction:column;gap:10px;transition:all .25s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden; }
+  .step:hover { border-color:var(--card-border-bright);transform:translateY(-4px);box-shadow:0 12px 40px rgba(255,45,107,.28); }
+  .step-num { font-family:'Nunito',sans-serif;font-weight:900;font-size:34px;line-height:1;color:rgba(255,45,107,.35); }
+  .step-time { font-family:'Nunito',sans-serif;font-weight:800;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dim); }
+  .step-title { font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;color:var(--candy);line-height:1.3; }
+  .step-body { font-size:12.5px;color:rgba(255,200,224,.8);line-height:1.75; }
+
+  /* YES AND CHAIN */
+  .chain-diagram { background:rgba(10,0,6,.5);border:1.5px solid var(--card-border);border-radius:16px;padding:18px 14px;margin-bottom:22px; }
+  .chain-diagram svg { width:100%;height:auto;display:block; }
+  .chain-rules { display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px; }
+  .rule { background:rgba(15,0,8,.65);border:1.5px solid var(--card-border);border-radius:14px;padding:18px 18px 16px; }
+  .rule h5 { font-family:'Nunito',sans-serif;font-weight:900;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px; }
+  .rule p { font-size:12.5px;color:rgba(255,200,224,.8);line-height:1.75; }
+  .yescard-row { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:18px; }
+  .yescard { background:linear-gradient(135deg,rgba(255,215,0,.12),rgba(255,45,107,.14));border:1.5px solid rgba(255,215,0,.4);border-radius:14px;padding:18px 16px;text-align:center; }
+  .yescard .stem { font-family:'Nunito',sans-serif;font-weight:900;font-size:13px;color:var(--gold);line-height:1.6; }
+  .yescard .fill { color:var(--blush);border-bottom:2px dotted rgba(255,179,207,.5);padding:0 26px; }
+  .yescard .who { font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-top:10px;font-family:'Nunito',sans-serif;font-weight:800; }
+
+  /* VARIATIONS */
+  .var-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px; }
+  .var { background:rgba(15,0,8,.68);border:1.5px solid var(--card-border);border-radius:18px;box-shadow:var(--soft-glow);padding:22px 22px 20px;display:flex;flex-direction:column;gap:9px;transition:all .25s cubic-bezier(.34,1.56,.64,1); }
+  .var:hover { border-color:var(--card-border-bright);transform:translateY(-4px);box-shadow:0 12px 40px rgba(255,45,107,.28); }
+  .var.flagship { border-color:rgba(255,215,0,.45);background:linear-gradient(160deg,rgba(60,40,0,.22),rgba(15,0,8,.7)); }
+  .var-age { font-family:'Nunito',sans-serif;font-weight:900;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--hot); }
+  .var.flagship .var-age { color:var(--gold); }
+  .var-name { font-family:'Nunito',sans-serif;font-weight:900;font-size:19px;color:var(--candy);line-height:1.2; }
+  .var-patent { font-family:'Nunito',sans-serif;font-weight:800;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dim);margin-top:-2px; }
+  .var-len { font-family:'Nunito',sans-serif;font-weight:800;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim); }
+  .var-changes { list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:6px;border-top:1px solid var(--card-border);padding-top:12px; }
+  .var-changes li { position:relative;padding-left:16px;font-size:12.5px;color:rgba(255,200,224,.8);line-height:1.7; }
+  .var-changes li::before { content:'✦';position:absolute;left:0;top:2px;color:var(--hot);font-size:8px; }
+  .var.flagship .var-changes li::before { color:var(--gold); }
+  .constant-card { margin-top:20px;background:rgba(15,0,8,.6);border:1.5px solid var(--card-border);border-radius:16px;padding:20px 24px;text-align:center; }
+  .constant-card h4 { font-family:'Nunito',sans-serif;font-weight:900;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--candy);margin-bottom:10px; }
+  .constant-card p { font-size:12.5px;color:rgba(255,200,224,.78);line-height:1.85;max-width:640px;margin:0 auto; }
+
+  /* PROMPT CARDS */
+  .prompts-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px; }
+  .prompt { background:linear-gradient(135deg,rgba(255,45,107,.14),rgba(180,0,50,.16));border:1.5px solid var(--card-border-bright);border-radius:14px;padding:18px 16px;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;line-height:1.6;color:var(--blush);text-align:center;transition:all .2s cubic-bezier(.34,1.56,.64,1); }
+  .prompt:hover { transform:rotate(-1.5deg) scale(1.04);color:var(--cream);border-color:var(--hot); }
+  .prompt span { color:var(--gold); }
+
+  /* PATENT CARDS */
+  .patent-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px; }
+  .patent { background:rgba(15,0,8,.65);border:1.5px dashed var(--card-border-bright);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:8px; }
+  .patent-no { font-family:'Nunito',sans-serif;font-weight:900;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dim); }
+  .patent-name { font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;color:var(--candy); }
+  .patent-desc { font-size:12px;color:rgba(255,200,224,.75);line-height:1.7; }
+  .patent-ask { font-size:11px;color:var(--text-dim);font-style:italic;line-height:1.6;border-top:1px solid var(--card-border);padding-top:8px;margin-top:2px; }
+  .patent.note-card { border-style:solid;border-color:rgba(255,215,0,.4);background:rgba(60,40,0,.25); }
+  .patent.note-card .patent-no { color:var(--gold); }
+
+  /* LISTS */
+  .includes-list { list-style:none;columns:2;column-gap:26px; }
+  @media(max-width:640px){.includes-list{columns:1}}
+  .includes-list li { position:relative;padding-left:20px;font-size:clamp(12px,1.6vw,14px);color:rgba(255,200,224,.82);line-height:1.65;letter-spacing:.02em;break-inside:avoid;margin-bottom:8px; }
+  .includes-list li::before { content:'✦';position:absolute;left:0;top:1px;color:var(--hot);font-size:10px; }
+  .includes-list li.pink-item::before { content:'♡';color:var(--candy); }
+
+  /* NEEDS */
+  .needs-grid { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
+  @media(max-width:700px){.needs-grid{grid-template-columns:1fr}}
+  .tp-group h4 { font-family:'Nunito',sans-serif;font-weight:900;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--candy);margin-bottom:10px;display:flex;align-items:center;gap:8px; }
+  .tp-group h4::before { content:'✦';color:var(--hot);font-size:10px; }
+  .tp-group ul { list-style:none;display:flex;flex-direction:column;gap:6px; }
+  .tp-group li { position:relative;padding-left:16px;font-size:13px;color:rgba(255,200,224,.82);line-height:1.7; }
+  .tp-group li::before { content:'·';position:absolute;left:2px;color:var(--hot);font-weight:900; }
+
+  /* DROPDOWN */
+  .techpack { max-width:760px;margin:0 auto; }
+  .techpack details { background:rgba(15,0,8,.7);border:1.5px solid var(--card-border-bright);border-radius:22px;box-shadow:var(--soft-glow);overflow:hidden; }
+  .techpack summary { list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;padding:18px 28px;font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(12px,1.8vw,15px);letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:linear-gradient(135deg,rgba(255,45,107,.4),rgba(180,0,50,.5));transition:all .2s ease;user-select:none; }
+  .techpack summary::-webkit-details-marker { display:none; }
+  .techpack summary:hover { background:linear-gradient(135deg,rgba(255,45,107,.6),rgba(180,0,50,.7)); }
+  .techpack summary .chev { font-size:12px;transition:transform .25s ease;color:var(--gold); }
+  .techpack details[open] summary .chev { transform:rotate(180deg); }
+  .techpack-body { padding:clamp(22px,3vw,36px) clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:22px; }
+
+  .links-row { display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:820px;margin:0 auto; }
+
+  footer { position:relative;z-index:10;margin-top:20px;padding:0 20px 60px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px; }
+  .footer-divider { width:min(90vw,400px);height:1px;background:linear-gradient(90deg,transparent,var(--card-border) 40%,var(--card-border) 60%,transparent);margin-bottom:20px; }
+  .footer-text { font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,160,200,.2); }
+</style>
+</head>
+<body>
+
+<div class="bg-layer"></div>
+<div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div><div class="orb orb-4"></div>
+<div class="sparkles" id="sparkles"></div>
+
+<!-- NAV -->
+<div class="nav-bar">
+  <a class="back-link" href="https://sbuckius.github.io/mother-of-all-demos/">← Back to The Mother of All Demos</a>
+  <div class="brand">
+    <div class="brand-icon">✦</div>
+    <div class="brand-name">Sarah Buckius</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow"><div class="pip"></div>Drop In Workshop · All Ages</div>
+  <h1 class="hero-title">Invent It</h1>
+  <div class="hero-subtitle">Inspired by Women's Patents</div>
+  <div class="hero-patentline">Santa Cruz County · 1903 to 1937</div>
+  <div class="hero-byline">A workshop with <span>Sarah Buckius</span></div>
+  <div class="hero-date-badge">
+    <span class="star">✦</span>
+    Date and venue to be announced
+    <span class="star">✦</span>
+  </div>
+  <div class="hero-links">
+    <a class="hero-link-main" href="https://sbuckius.github.io/mother-of-all-demos/" target="_blank" rel="noopener">The Performance ↗</a>
+    <a class="hero-link-main" href="https://care-tech.org/patents-by-women.html" target="_blank" rel="noopener">Patents by Women ↗</a>
+    <a class="hero-link-main" href="https://care-tech.org" target="_blank" rel="noopener">care-tech.org ↗</a>
+  </div>
+</div>
+
+<!-- DROP IN RIBBON -->
+<div class="ribbon">
+  <div class="ribbon-inner">
+    <div class="ribbon-item">Two Hours</div>
+    <div class="ribbon-item"><span>·</span></div>
+    <div class="ribbon-item">Come and Go</div>
+    <div class="ribbon-item"><span>·</span></div>
+    <div class="ribbon-item">All Ages</div>
+    <div class="ribbon-item"><span>·</span></div>
+    <div class="ribbon-item">Free</div>
+    <div class="ribbon-item"><span>·</span></div>
+    <div class="ribbon-item">No Registration</div>
+  </div>
+</div>
+
+<!-- SOURCE -->
+<div class="description-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">The Source</div>
+    <div class="section-title">Seventeen Women, One County</div>
+  </div>
+  <div class="body-card">
+    <div class="namesake">
+      <div class="namesake-plate">
+        <img src="images/santa_cruz_patents.png"
+             alt="Patent drawings by women inventors of Santa Cruz County"
+             onerror="this.outerHTML='&lt;div class=\'fallback\'&gt;Santa Cruz&lt;br&gt;Patent Drawings&lt;br&gt;1903 to 1937&lt;/div&gt;'">
+      </div>
+      <div class="namesake-body">
+        <p>Everything in this room starts from patents filed by women who lived in <strong>Santa Cruz, Watsonville, and the towns around them</strong> between 1903 and 1937. A steam cooker by Bertha Leibbrandt. Doll's eyes by Mabel P. Smith. A stocking drying device by Elizabeth M. Limerick. A holder for thread, cord, tape, etc. by Mildred N. Anderson. A tooth cleanser by Kate M. Remington.</p>
+        <p>None of them are famous. All of them are documented. Their names are said out loud in this workshop more than anyone's, including mine, and every invention made here carries one of them home.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PULL QUOTE -->
+<div class="poem-section">
+  <div class="section-eyebrow">The Premise</div>
+  <div class="poem-card">
+    <div class="poem-text">
+      Women have always invented.<br>
+      The <em>filing</em> is the part<br>
+      that keeps getting lost.
+    </div>
+    <div class="poem-attr">After Matilda Joslyn Gage, "Woman as Inventor," 1870</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="description-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">About the Workshop</div>
+    <div class="section-title">Real Patents, Wildly Unreal Ideas</div>
+  </div>
+  <div class="body-card">
+    <p><strong>Invent It</strong> is a two hour drop in invention workshop open to any age, built out of the research behind the performance <strong>The Mother of All Demos</strong>. Patents by women from <strong>Santa Cruz County</strong> are printed at 8.5 by 11, dozens of copies of each, stacked on the tables and pinned up on a wall. Anyone who walks in picks one and uses it as the launch pad for an invention of their own. Come with kids, come with friends, come alone.</p>
+    <p>The patents are the seed, not the assignment. A patent for a fruit dryer becomes a machine that dries feelings. A patent for a clothesline becomes a system for hanging up an entire bad mood. Six year olds, teenagers, parents, and grandparents work at the same tables, tracing, cutting, collaging, taping, and naming, and every invention is welcome no matter how impossible, expensive, or ridiculous it would be to actually build.</p>
+    <p>Because it runs as a drop in, there is no start time to miss and nothing to sign up for. You can move through the whole thing in twenty minutes or stay the full two hours and file four inventions. The workshop runs in a <strong>Yes And</strong> format. Every invention that gets filed goes up on the Chain Wall carrying a new prompt written by the person who made it, so the next person can pick it up and add to it. One historic patent branches into a chain of inventions by people who never met, and the wall gets stranger as the afternoon goes on.</p>
+  </div>
+  <div class="themes-row">
+    <span class="theme-tag">Women Inventors</span>
+    <span class="theme-tag">Santa Cruz History</span>
+    <span class="theme-tag">Matilda Effect</span>
+    <span class="theme-tag">Drawing &amp; Making</span>
+    <span class="theme-tag">All Ages</span>
+    <span class="theme-tag">Yes And</span>
+    <span class="theme-tag">Speculative Design</span>
+    <span class="theme-tag">Drop In</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- FAST FACTS -->
+<div class="wide-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">At a Glance</div>
+    <div class="section-title">The Shape of the Day</div>
+  </div>
+  <div class="facts-grid">
+    <div class="fact">
+      <div class="fact-label">Length</div>
+      <div class="fact-value">2 hours</div>
+      <div class="fact-note">Open the whole time, arrive whenever</div>
+    </div>
+    <div class="fact">
+      <div class="fact-label">Stay For</div>
+      <div class="fact-value">20 minutes or all of it</div>
+      <div class="fact-note">One invention takes about 20 to 30 minutes, start to finish, prompt to prompt</div>
+    </div>
+    <div class="fact">
+      <div class="fact-label">Ages</div>
+      <div class="fact-value">Any age</div>
+      <div class="fact-note">Small kids work with a grownup, everyone else works however they like</div>
+    </div>
+    <div class="fact">
+      <div class="fact-label">Capacity</div>
+      <div class="fact-value">20 at a time</div>
+      <div class="fact-note">Roughly 60 to 80 people across the two hours</div>
+    </div>
+    <div class="fact">
+      <div class="fact-label">Cost</div>
+      <div class="fact-value">Free</div>
+      <div class="fact-note">No registration, all materials provided by the artist</div>
+    </div>
+    <div class="fact">
+      <div class="fact-label">Take Home</div>
+      <div class="fact-value">A filed patent</div>
+      <div class="fact-note">Drawing, certificate, and a copy of the historic patent you started from</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- STATIONS -->
+<div class="wide-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">How It Works</div>
+    <div class="section-title">Seven Stations, Any Order, Any Time</div>
+  </div>
+  <p style="text-align:center;font-size:12px;color:var(--text-dim);margin-bottom:28px;line-height:1.8;max-width:680px;margin-left:auto;margin-right:auto;">
+    Nothing is scheduled except the demos. People move through the room at their own speed and leave whenever they are done. Every invention filed leaves behind an open prompt for somebody else.
+  </p>
+  <div class="steps-grid">
+
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-time">The Patent Wall · 5 minutes</div>
+      <div class="step-title">Meet the Inventors</div>
+      <div class="step-body">Patents by women from Santa Cruz County hang low enough for a small kid to read, with the inventor's name, the year, and the town. I am usually standing here, telling whoever just arrived one story, including the ones where the credit went sideways. There is a thick stack of copies of every patent, so nobody has to share and nobody has to be careful with them. Take as many as you want back to a table.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-time">The Deck · 2 minutes</div>
+      <div class="step-title">Start a Chain or Join One</div>
+      <div class="step-body">Two ways in. Draw a Blue Sky card from the deck at your table and start something new from a historic patent, or walk to the Chain Wall and pull an open Yes And card that somebody already filed. Starting fresh and building on a stranger are equally good. The cards decide what your invention has to do, and this is where the room usually gets loud.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-time">The Tables · 15 to 20 minutes</div>
+      <div class="step-title">Build It</div>
+      <div class="step-body">Trace the parts you like off the patent copies, cut them out, and collage them into a machine that never existed. Draw the rest by hand on a large patent form, build a rough model out of cardboard, foil, pipe cleaners, and tape, and label every part with a number the way a real patent drawing does. If you came with a kid, you are asked to build the part they design, not the other way around.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-time">The Patent Office · 5 minutes</div>
+      <div class="step-title">File It</div>
+      <div class="step-body">Inventions get an official name, a number, and a one sentence claim beginning "What I claim as my invention is..." You sign your form and I stamp it. If you built on someone else's invention, their name goes on your form too, right under yours, because that is the whole argument of this workshop. This is the step nobody skips.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-time">The Patent Office · 2 minutes</div>
+      <div class="step-title">Pass It On</div>
+      <div class="step-body">Before you leave the desk, you write one Yes And card for the next person: "Yes, and now make it ______." You do not get to know who picks it up or what they do with it. The card gets clipped under your invention on the Chain Wall, and your invention is now somebody else's starting point.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">06</div>
+      <div class="step-time">The Chain Wall · any time</div>
+      <div class="step-title">Yes And</div>
+      <div class="step-body">The second wall, and the one that changes all afternoon. Filed inventions hang in branching chains, each one connected by pink tape to the invention it came from and to the historic patent at the root. Every open Yes And card is an invitation. Take one, and your invention hangs off theirs. You are allowed to Yes And your own invention, and some people spend the whole two hours on one chain.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">07</div>
+      <div class="step-time">Every 20 minutes on the clock</div>
+      <div class="step-title">The Demo</div>
+      <div class="step-body">Six times across the two hours, a bell rings and one chain gets demoed at the little pink desk from the performance. It starts with the woman whose patent began it, then each inventor in order says what they added, sixty seconds each. Demoing is optional, applause is mandatory, and questions from kids are usually the hardest ones.</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- YES AND -->
+<div class="wide-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">The Format</div>
+    <div class="section-title">Yes And, All Afternoon</div>
+  </div>
+  <p style="text-align:center;font-size:12px;color:var(--text-dim);margin-bottom:26px;line-height:1.8;max-width:700px;margin-left:auto;margin-right:auto;">
+    No invention is finished. Every one that gets filed carries a prompt to the next person, so a single historic patent branches into a chain that nobody planned and nobody owns alone.
+  </p>
+
+  <div class="chain-diagram">
+    <svg viewBox="0 0 940 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a Yes And invention chain branching from one historic patent">
+      <style>
+        .cd-t { font-family:'Nunito',sans-serif; font-weight:900; }
+        .cd-s { font-family:'Nunito',sans-serif; font-weight:800; }
+      </style>
+
+      <!-- connectors -->
+      <g fill="none" stroke="#ff2d6b" stroke-width="2.5" stroke-linecap="round">
+        <path d="M212 210 L268 210"/>
+        <path d="M432 190 C470 190 470 108 508 108"/>
+        <path d="M432 232 C470 232 470 300 508 300"/>
+        <path d="M672 108 L728 108"/>
+        <path d="M672 300 C710 300 710 372 748 372"/>
+      </g>
+
+      <!-- root patent -->
+      <rect x="24" y="158" width="188" height="104" rx="14" fill="#ffb3cf" stroke="#ff2d6b" stroke-width="2"/>
+      <text x="118" y="192" text-anchor="middle" class="cd-s" font-size="11" fill="#6f001e" letter-spacing="2">HISTORIC PATENT</text>
+      <text x="118" y="218" text-anchor="middle" class="cd-t" font-size="15" fill="#3d0018">Her drawing,</text>
+      <text x="118" y="238" text-anchor="middle" class="cd-t" font-size="15" fill="#3d0018">her name</text>
+
+      <!-- invention 1 -->
+      <rect x="268" y="164" width="164" height="92" rx="12" fill="rgba(255,45,107,.22)" stroke="#ff5c8a" stroke-width="2"/>
+      <text x="350" y="196" text-anchor="middle" class="cd-s" font-size="10" fill="#ff85b3" letter-spacing="2">INVENTION 01</text>
+      <text x="350" y="222" text-anchor="middle" class="cd-t" font-size="14" fill="#fff5f8">Filed at 1:10</text>
+
+      <!-- invention 2a -->
+      <rect x="508" y="64" width="164" height="88" rx="12" fill="rgba(255,45,107,.22)" stroke="#ff5c8a" stroke-width="2"/>
+      <text x="590" y="96" text-anchor="middle" class="cd-s" font-size="10" fill="#ff85b3" letter-spacing="2">INVENTION 02</text>
+      <text x="590" y="122" text-anchor="middle" class="cd-t" font-size="14" fill="#fff5f8">A stranger</text>
+
+      <!-- invention 2b -->
+      <rect x="508" y="256" width="164" height="88" rx="12" fill="rgba(255,45,107,.22)" stroke="#ff5c8a" stroke-width="2"/>
+      <text x="590" y="288" text-anchor="middle" class="cd-s" font-size="10" fill="#ff85b3" letter-spacing="2">INVENTION 03</text>
+      <text x="590" y="314" text-anchor="middle" class="cd-t" font-size="14" fill="#fff5f8">Same kid, again</text>
+
+      <!-- open prompts -->
+      <rect x="728" y="70" width="188" height="76" rx="12" fill="rgba(255,215,0,.14)" stroke="#ffd700" stroke-width="2" stroke-dasharray="7 5"/>
+      <text x="822" y="100" text-anchor="middle" class="cd-s" font-size="10" fill="#c9a800" letter-spacing="2">OPEN PROMPT</text>
+      <text x="822" y="124" text-anchor="middle" class="cd-t" font-size="14" fill="#ffd700">Yes, and...</text>
+
+      <rect x="748" y="336" width="168" height="72" rx="12" fill="rgba(255,215,0,.14)" stroke="#ffd700" stroke-width="2" stroke-dasharray="7 5"/>
+      <text x="832" y="364" text-anchor="middle" class="cd-s" font-size="10" fill="#c9a800" letter-spacing="2">OPEN PROMPT</text>
+      <text x="832" y="388" text-anchor="middle" class="cd-t" font-size="14" fill="#ffd700">Yes, and...</text>
+
+      <!-- edge labels -->
+      <text x="240" y="200" text-anchor="middle" class="cd-s" font-size="10" fill="#ff85b3">yes and</text>
+      <text x="470" y="142" text-anchor="middle" class="cd-s" font-size="10" fill="#ff85b3">yes and</text>
+      <text x="470" y="278" text-anchor="middle" class="cd-s" font-size="10" fill="#ff85b3">yes and</text>
+    </svg>
+  </div>
+
+  <div class="chain-rules">
+    <div class="rule">
+      <h5>Yes</h5>
+      <p>You accept what the last inventor made. You do not fix it, improve it, or explain why it would not work. Whatever they drew is now true.</p>
+    </div>
+    <div class="rule">
+      <h5>And</h5>
+      <p>You add. A part, a power, a problem it now solves, a job it now refuses. The chain only moves forward.</p>
+    </div>
+    <div class="rule">
+      <h5>Then You Hand It Off</h5>
+      <p>You write the next prompt before you go. Nobody leaves the patent office without leaving an invitation behind.</p>
+    </div>
+    <div class="rule">
+      <h5>Everybody's Name Stays On</h5>
+      <p>Each form carries the name of the person before you and the woman whose patent started the chain. Credit accumulates instead of transferring, which is the argument the whole workshop is making.</p>
+    </div>
+  </div>
+
+  <div class="yescard-row">
+    <div class="yescard">
+      <div class="stem">Yes, and now make it <span class="fill">&nbsp;</span></div>
+      <div class="who">Written by the inventor before you</div>
+    </div>
+    <div class="yescard">
+      <div class="stem">Yes, and now it also <span class="fill">&nbsp;</span></div>
+      <div class="who">Written by the inventor before you</div>
+    </div>
+    <div class="yescard">
+      <div class="stem">Yes, and the problem is <span class="fill">&nbsp;</span></div>
+      <div class="who">Written by the inventor before you</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- VARIATIONS -->
+<div class="wide-section" id="variations">
+  <div class="desc-header">
+    <div class="section-eyebrow">Variations</div>
+    <div class="section-title">One Workshop, Five Versions</div>
+  </div>
+  <p style="text-align:center;font-size:12px;color:var(--text-dim);margin-bottom:28px;line-height:1.8;max-width:700px;margin-left:auto;margin-right:auto;">
+    The same structure runs at every age. What changes is how much patent language comes in, how long an invention takes, and what counts as a demo. Each version is named for a different Santa Cruz inventor, so her name is on the door of that room.
+  </p>
+  <div class="var-grid">
+
+    <div class="var">
+      <div class="var-age">Ages 4 to 7</div>
+      <div class="var-name">Doll's Eyes</div>
+      <div class="var-patent">Mabel P. Smith · Santa Cruz · 1919</div>
+      <div class="var-len">About 15 minutes per invention</div>
+      <ul class="var-changes">
+        <li>Patents chosen for legible objects: brooms, teapots, dolls, watering cans</li>
+        <li>Prompt cards have pictures and get read aloud</li>
+        <li>Tracing paper over the drawings, tearing instead of cutting, glue sticks and fat crayons</li>
+        <li>The claim is spoken out loud and a grownup writes it down word for word</li>
+        <li>The demo is holding it up and saying what it does</li>
+        <li>Yes And cards are dictated to a grownup, and usually say something about animals</li>
+      </ul>
+    </div>
+
+    <div class="var">
+      <div class="var-age">Ages 8 to 12</div>
+      <div class="var-name">Artificial Flower</div>
+      <div class="var-patent">Jennie E. Stevens · Santa Cruz · 1922</div>
+      <div class="var-len">25 to 30 minutes per invention</div>
+      <ul class="var-changes">
+        <li>Real patent conventions come in: numbered parts, figure labels, a written claim</li>
+        <li>Three prompt cards at once instead of one</li>
+        <li>Full build kit: tracing paper, scissors, glue, cardboard, tape, foil, pipe cleaners</li>
+        <li>They write and sign the claim sentence themselves</li>
+        <li>The demo takes one question from the audience</li>
+        <li>Chains run long at this age, and they will keep coming back to check on theirs</li>
+      </ul>
+    </div>
+
+    <div class="var">
+      <div class="var-age">Teens</div>
+      <div class="var-name">Transferring Composition</div>
+      <div class="var-patent">Emily C. Pawla and Edith W. Pawla · Santa Cruz · 1925</div>
+      <div class="var-len">45 minutes per invention</div>
+      <ul class="var-changes">
+        <li>They read the actual patent text, not a summary of it</li>
+        <li>The Matilda Effect is named directly and discussed</li>
+        <li>Phones welcome: they look up what happened to their inventor</li>
+        <li>The invention has to address something real in their own life</li>
+        <li>The demo becomes a pitch, and the room is allowed to be skeptical</li>
+        <li>Yes And cards are written as constraints, which makes them harder and better</li>
+      </ul>
+    </div>
+
+    <div class="var">
+      <div class="var-age">Adults</div>
+      <div class="var-name">Design for an Emblem</div>
+      <div class="var-patent">Harriet E. Blanks · Santa Cruz · 1917</div>
+      <div class="var-len">60 to 90 minutes, seated</div>
+      <ul class="var-changes">
+        <li>Opens with an excerpt of Matilda Joslyn Gage's "Woman as Inventor," 1870, read aloud</li>
+        <li>Discussion of credit, care labor, and who the patent system was built to serve</li>
+        <li>Inventions can be systems, policies, or services, not only objects</li>
+        <li>Drawing quality is nobody's business, and I say so out loud early</li>
+        <li>The demo becomes a critique, with real questions and real disagreement</li>
+        <li>Chains get traced back out loud, naming everyone who touched the idea</li>
+      </ul>
+    </div>
+
+    <div class="var flagship">
+      <div class="var-age">Any Age · Drop In</div>
+      <div class="var-name">Thread, Cord, Tape, Etc.</div>
+      <div class="var-patent">Mildred N. Anderson · Santa Cruz · 1926</div>
+      <div class="var-len">Two hours, come and go</div>
+      <ul class="var-changes">
+        <li>The version described on this page</li>
+        <li>All the decks, all the patent copies, and all the build materials on the tables at once</li>
+        <li>Everyone works at their own depth, side by side, in the same room</li>
+        <li>Demos on a bell every 20 minutes, one whole chain at a time</li>
+        <li>Best for museum family days, library afternoons, and festival tents</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="constant-card">
+    <h4>What Stays the Same</h4>
+    <p>Every version starts at a wall of patents by women with copies to cut into, runs on Yes And, ends with the invention filed, stamped, and carrying a prompt for somebody else, and sends the inventor home with the name of a woman whose idea started theirs. The structure does not get simpler for younger people. Only the vocabulary does.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROMPT CARDS -->
+<div class="wide-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">The Deck</div>
+    <div class="section-title">Blue Sky Prompt Cards</div>
+  </div>
+  <p style="text-align:center;font-size:12px;color:var(--text-dim);margin-bottom:26px;line-height:1.8;max-width:640px;margin-left:auto;margin-right:auto;">
+    The starter deck, for anyone beginning a new chain from a historic patent. Each card asks you to bend that patent somewhere it was never meant to go. Once your invention is filed, you write the next card yourself.
+  </p>
+  <div class="prompts-grid">
+    <div class="prompt">Make it <span>a thousand times bigger</span>. What can it hold now?</div>
+    <div class="prompt">Make it do <span>the opposite</span> of what it was built to do.</div>
+    <div class="prompt">Make it work <span>underwater</span>.</div>
+    <div class="prompt">Make it invent something <span>for the person who is tired</span> in your house.</div>
+    <div class="prompt">Add <span>a feeling</span>. What emotion does the machine have?</div>
+    <div class="prompt">Make it run on <span>something free</span>. Sunlight, laughing, walking, waiting.</div>
+    <div class="prompt">Make it <span>softer</span>. Now it is a pillow, a blanket, a stuffed animal.</div>
+    <div class="prompt">Give it <span>a job it refuses to do</span>.</div>
+    <div class="prompt">Make it useful <span>one hundred years from now</span>.</div>
+    <div class="prompt">Make it take care of <span>something small</span>. A seed, a bug, a baby, a worry.</div>
+    <div class="prompt">Make it <span>impossible</span> and draw it anyway.</div>
+    <div class="prompt">Make it work <span>only at night</span>.</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PATENTS -->
+<div class="wide-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">Source Material</div>
+    <div class="section-title">Santa Cruz Patents by Women</div>
+  </div>
+  <p style="text-align:center;font-size:12px;color:var(--text-dim);margin-bottom:26px;line-height:1.8;max-width:680px;margin-left:auto;margin-right:auto;">
+    The workshop draws on the patent research behind The Mother of All Demos, narrowed to inventors from Santa Cruz County so the history sits in the same place the people in the room live. Seventeen patents, filed by women of Santa Cruz, Watsonville, and the towns around them between 1903 and 1937. Ten to fifteen come to each session, printed at 8.5 by 11 with dozens of copies of each, so they can be traced over, cut apart, and collaged without anyone worrying about ruining the only one.
+  </p>
+
+  <!--
+    TO ADD A PATENT: copy one .patent block and fill in the four fields.
+    patent-no   = patent number and year
+    patent-name = inventor name, city
+    patent-desc = what the patent is for, in plain language a small kid can follow
+    patent-ask  = the question I ask when someone picks this one
+    Full archive and numbers: patents-santa-cruz.html
+  -->
+  <div class="patent-grid">
+
+    <div class="patent">
+      <div class="patent-no">1926 · Number to confirm</div>
+      <div class="patent-name">Mildred N. Anderson · Santa Cruz</div>
+      <div class="patent-desc">Holder for Thread, Cord, Tape, Etc. A thing that keeps other things from getting tangled. The "etc." is doing a lot of quiet work.</div>
+      <div class="patent-ask">What else belongs in the etc.?</div>
+    </div>
+
+    <div class="patent">
+      <div class="patent-no">1919 · Number to confirm</div>
+      <div class="patent-name">Mabel P. Smith · Santa Cruz</div>
+      <div class="patent-desc">Doll's Eyes. Eyes made to be put into a face that does not have any yet.</div>
+      <div class="patent-ask">What should your machine be able to see?</div>
+    </div>
+
+    <div class="patent">
+      <div class="patent-no">US1290257 · 1918</div>
+      <div class="patent-name">Elizabeth M. Limerick · Watsonville</div>
+      <div class="patent-desc">Stocking-Drying Device. Filed in February, granted the next January, for the problem of wet socks.</div>
+      <div class="patent-ask">What in your house takes too long to dry?</div>
+    </div>
+
+    <div class="patent">
+      <div class="patent-no">US1174590 · 1916</div>
+      <div class="patent-name">Bertha Leibbrandt · Santa Cruz</div>
+      <div class="patent-desc">Steam-Cooker. She also patented a way of making bread from whole grain and a way of treating grain for beverages. Three ideas, one after another.</div>
+      <div class="patent-ask">What would you invent next, if this one worked?</div>
+    </div>
+
+    <div class="patent">
+      <div class="patent-no">US1606662 · 1925</div>
+      <div class="patent-name">Emily C. Pawla and Edith W. Pawla · Santa Cruz</div>
+      <div class="patent-desc">Transferring Composition. A way of moving an image from one surface onto another, patented by two women together.</div>
+      <div class="patent-ask">What would you want to move onto something else?</div>
+    </div>
+
+    <div class="patent">
+      <div class="patent-no">US2092987 · 1937</div>
+      <div class="patent-name">Kate M. Remington · Santa Cruz</div>
+      <div class="patent-desc">Tooth Cleanser. The most recent patent in the collection, and the least glamorous.</div>
+      <div class="patent-ask">What boring thing could be a great invention?</div>
+    </div>
+
+    <!-- ARCHIVE NOTE: content warning card -->
+    <div class="patent note-card">
+      <div class="patent-no">✦ Archive Note</div>
+      <div class="patent-name">On one patent in this collection</div>
+      <div class="patent-desc">This patent contains a racist caricature of Native people, common in illustration of its era. It is shown with that named rather than cropped out. Recovering women inventors from the record means looking at the whole record, including the parts that cause harm.</div>
+      <div class="patent-ask">Held out of the deck people choose from. Available on the research page with full context.</div>
+    </div>
+
+  </div>
+
+  <div class="links-row" style="margin-top:26px;">
+    <a class="hero-link-main" href="https://care-tech.org/patents-by-women.html" target="_blank" rel="noopener">Full Patent Archive ↗</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- TAKE HOME -->
+<div class="description-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">Take Home</div>
+    <div class="section-title">What Leaves the Room</div>
+  </div>
+  <div class="body-card">
+    <ul class="includes-list">
+      <li>A signed and stamped Blue Sky patent certificate</li>
+      <li>Their invention drawing on a large patent form</li>
+      <li>Spare copies of the historic patent they started from, to keep cutting up at home</li>
+      <li>The name and story of a woman inventor from their own county</li>
+      <li>Their cardboard model, if it survives the walk to the car</li>
+      <li class="pink-item">A pink worker badge from the performance</li>
+      <li class="pink-item">A photo at the pink desk mid demo</li>
+      <li class="pink-item">A photo of the whole chain their invention sits in</li>
+      <li class="pink-item">Permission to keep inventing at the kitchen table</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- LOGISTICS -->
+<div class="description-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">For Host Venues</div>
+    <div class="section-title">What I Need, What I Bring</div>
+  </div>
+  <div class="techpack">
+    <details>
+      <summary>Workshop Requirements <span class="chev">▼</span></summary>
+      <div class="techpack-body">
+
+        <div class="needs-grid">
+          <div class="tp-group">
+            <h4>Space</h4>
+            <ul>
+              <li>Room for 5 to 6 tables that seat 4 people each</li>
+              <li>Two walls, boards, or hanging systems: one for the historic patents, one for the Chain Wall where filed inventions branch out during the session</li>
+              <li>Wall space for roughly 25 sheets at 8.5 x 11 in to start, growing to about 80 by the end. Chains branch sideways, so wide beats tall</li>
+              <li>Floor space for the demo desk, about 6 ft by 8 ft, visible from the tables</li>
+              <li>Sink or water access nearby, glue and small hands</li>
+            </ul>
+          </div>
+          <div class="tp-group">
+            <h4>From the Venue</h4>
+            <ul>
+              <li>Tables and chairs, including a few low chairs for small kids</li>
+              <li>Table covering if the surfaces need protecting</li>
+              <li>Recycling and trash bins, emptied once mid session</li>
+              <li>One staff member or volunteer at the door for the full two hours, greeting arrivals and keeping the room at about 20 people at a time</li>
+              <li>Optional microphone if the room is large or echoey</li>
+            </ul>
+          </div>
+          <div class="tp-group">
+            <h4>Timing</h4>
+            <ul>
+              <li>Two hours, open the whole time, no fixed start</li>
+              <li>60 minutes of setup before, 45 minutes of strike after</li>
+              <li>Demos run every 20 minutes, six across the session</li>
+              <li>Can extend to three hours with additional materials</li>
+            </ul>
+          </div>
+          <div class="tp-group">
+            <h4>Items That I Bring</h4>
+            <ul>
+              <li>Patent copies at 8.5 x 11, dozens of each, in labeled stacks</li>
+              <li>Blue Sky prompt card decks, one per table</li>
+              <li>Large blank patent forms and certificates for 80 people</li>
+              <li>Tracing paper, scissors, glue sticks, and the rest of the drawing and building materials</li>
+              <li>Pink desk, pink baskets, worker badges, and the stamp</li>
+              <li>Pink gaffer tape</li>
+              <li>Yes And cards, clips, and pink tape for the chains</li>
+              <li>A bell</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </details>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONNECTION -->
+<div class="description-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">Connected Work</div>
+    <div class="section-title">Where This Comes From</div>
+  </div>
+  <div class="body-card">
+    <p>The workshop grew out of <strong>The Mother of All Demos</strong>, a participatory multimedia performance that memorializes 504 patents by women, reads Matilda Joslyn Gage's 1870 article "Woman as Inventor" aloud, and pays its audience for their labor. The performance argues that invention by women has always been happening and has always been credited elsewhere, a pattern named the <strong>Matilda Effect</strong>.</p>
+    <p>The performance makes that argument to an audience. The workshop hands the argument to whoever walks in and asks them to do something about it, at a table, with tape.</p>
+  </div>
+  <div class="links-row" style="margin-top:26px;">
+    <a class="hero-link-main" href="https://sbuckius.github.io/mother-of-all-demos/" target="_blank" rel="noopener">The Mother of All Demos ↗</a>
+    <a class="hero-link-main" href="https://sjmusart.org/exhibition/motherboards" target="_blank" rel="noopener">SJMA · Motherboards ↗</a>
+    <a class="hero-link-main" href="https://care-tech.org" target="_blank" rel="noopener">care-tech.org ↗</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- BOOKING -->
+<div class="description-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">Bring It to Your Venue</div>
+    <div class="section-title">Booking</div>
+  </div>
+  <div class="body-card" style="text-align:center;">
+    <p>Invent It travels to museums, libraries, schools, and community centers. It can stand alone, follow a performance, or run as an all ages open studio paired with a gallery visit.</p>
+    <div class="links-row" style="margin-top:8px;">
+      <a class="hero-link-main" href="https://care-tech.org" target="_blank" rel="noopener">Get in Touch ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-divider"></div>
+  <div class="footer-text">✦ Sarah Buckius · Invent It · Inspired by Women's Patents ✦</div>
+</footer>
+
+<script>
+(function(){
+  const wrap = document.getElementById('sparkles');
+  const chars = ['✦','✧','♡','˚','·','✿','◦','❀','°','✎','⚙','✻'];
+  for (let i = 0; i < 36; i++) {
+    const s = document.createElement('span');
+    s.className = 'sp';
+    s.textContent = chars[Math.floor(Math.random() * chars.length)];
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.bottom = Math.random() * -80 + 'px';
+    s.style.fontSize = (9 + Math.random() * 12) + 'px';
+    s.style.color = `hsl(${Math.random()<.15 ? 48 : 310 + Math.random()*50},75%,${65 + Math.random()*25}%)`;
+    s.style.animationDuration = (7 + Math.random() * 14) + 's';
+    s.style.animationDelay = (Math.random() * 14) + 's';
+    wrap.appendChild(s);
+  }
+})();
+</script>
+</body>
+</html>
