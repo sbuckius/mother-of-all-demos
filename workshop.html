@@ -107,7 +107,10 @@
   .poem-card::before { content:'';position:absolute;top:0;left:10%;right:10%;height:1.5px;background:linear-gradient(90deg,transparent,var(--candy) 35%,var(--hot) 50%,var(--candy) 65%,transparent);box-shadow:0 0 12px var(--rose);border-radius:999px; }
   .poem-text { font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:clamp(15px,2.2vw,20px);color:var(--blush);line-height:2; }
   .poem-text em { color:var(--gold);font-style:normal; }
-  .poem-attr { font-family:'Nunito',sans-serif;font-weight:800;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);margin-top:18px; }
+  .poem-setup { font-family:'Quicksand',sans-serif;font-weight:600;font-size:clamp(11px,1.5vw,13px);font-style:italic;color:var(--text-dim);line-height:1.8;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--card-border); }
+  .poem-attr { font-family:'Nunito',sans-serif;font-weight:800;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);margin-top:20px; }
+  .poem-attr a { color:var(--candy);text-decoration:none;border-bottom:1px solid rgba(255,133,179,.4);transition:all .18s ease; }
+  .poem-attr a:hover { color:var(--gold);border-bottom-color:var(--gold); }
 
   /* FAST FACTS */
   .facts-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px; }
@@ -138,6 +141,20 @@
   .yescard .stem { font-family:'Nunito',sans-serif;font-weight:900;font-size:13px;color:var(--gold);line-height:1.6; }
   .yescard .fill { color:var(--blush);border-bottom:2px dotted rgba(255,179,207,.5);padding:0 26px; }
   .yescard .who { font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-top:10px;font-family:'Nunito',sans-serif;font-weight:800; }
+
+  /* PATENT OFFICE */
+  .office-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px; }
+  .office { background:rgba(15,0,8,.66);border:1.5px solid var(--card-border);border-radius:16px;padding:20px 20px 18px;display:flex;flex-direction:column;gap:9px;transition:all .22s ease; }
+  .office:hover { border-color:var(--card-border-bright);transform:translateY(-3px); }
+  .office-kicker { font-family:'Nunito',sans-serif;font-weight:900;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--hot); }
+  .office h5 { font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;color:var(--candy);line-height:1.3; }
+  .office p { font-size:12.5px;color:rgba(255,200,224,.8);line-height:1.75; }
+  .office .cost { font-family:'Nunito',sans-serif;font-weight:800;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dim);margin-top:2px; }
+  .office.seal { border-color:rgba(255,215,0,.4);background:linear-gradient(160deg,rgba(60,40,0,.24),rgba(15,0,8,.7)); }
+  .office.seal .office-kicker { color:var(--gold); }
+  .subhead { font-family:'Nunito',sans-serif;font-weight:900;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--blush);text-align:center;margin:30px 0 16px;display:flex;align-items:center;justify-content:center;gap:12px; }
+  .subhead::before, .subhead::after { content:'';height:1px;width:52px;background:linear-gradient(90deg,transparent,var(--card-border-bright)); }
+  .subhead::after { background:linear-gradient(90deg,var(--card-border-bright),transparent); }
 
   /* VARIATIONS */
   .var-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px; }
@@ -282,12 +299,17 @@
 <div class="poem-section">
   <div class="section-eyebrow">The Premise</div>
   <div class="poem-card">
+    <div class="poem-setup">No assertion in reference to woman is more common than that she possesses no inventive or mechanical genius&hellip;</div>
     <div class="poem-text">
-      Women have always invented.<br>
-      The <em>filing</em> is the part<br>
-      that keeps getting lost.
+      Tradition, history, and experience<br>
+      alike prove her possession<br>
+      of these faculties<br>
+      in the <em>highest degree</em>.
     </div>
-    <div class="poem-attr">After Matilda Joslyn Gage, "Woman as Inventor," 1870</div>
+    <div class="poem-attr">
+      Matilda Joslyn Gage &middot;
+      <a href="https://viewer.lib.harvard.edu/viewer/URN-3:FHCL:453551" target="_blank" rel="noopener">"Woman as Inventor," 1870 &#8599;</a>
+    </div>
   </div>
 </div>
 
@@ -351,7 +373,7 @@
     <div class="fact">
       <div class="fact-label">Take Home</div>
       <div class="fact-value">A filed patent</div>
-      <div class="fact-note">Drawing, certificate, and a copy of the historic patent you started from</div>
+      <div class="fact-note">A stamped and embossed carbon copy of your own invention, serial number and all</div>
     </div>
   </div>
 </div>
@@ -394,14 +416,14 @@
       <div class="step-num">04</div>
       <div class="step-time">The Patent Office · 5 minutes</div>
       <div class="step-title">File It</div>
-      <div class="step-body">Inventions get an official name, a number, and a one sentence claim beginning "What I claim as my invention is..." You sign your form and I stamp it. If you built on someone else's invention, their name goes on your form too, right under yours, because that is the whole argument of this workshop. This is the step nobody skips.</div>
+      <div class="step-body">Inventions get an official name, a number, and a one sentence claim beginning "What I claim as my invention is..." The form is a carbonless duplicate, so everything you write lands on a second copy underneath. You sign it, the Examiner asks you one question, and it gets a serial number and an embossed seal. If you built on someone else's invention, their name goes on your form too, right under yours, because that is the whole argument of this workshop. The top sheet stays on the Chain Wall. The copy goes home with you.</div>
     </div>
 
     <div class="step">
       <div class="step-num">05</div>
       <div class="step-time">The Patent Office · 2 minutes</div>
       <div class="step-title">Pass It On</div>
-      <div class="step-body">Before you leave the desk, you write one Yes And card for the next person: "Yes, and now make it ______." You do not get to know who picks it up or what they do with it. The card gets clipped under your invention on the Chain Wall, and your invention is now somebody else's starting point.</div>
+      <div class="step-body">Before you leave the desk, you write one Yes And card for the next person: "Yes, and now make it ______." You do not get to know who picks it up or what they do with it. The card gets clipped under your invention on the Chain Wall, and your invention is now somebody else's starting point. Then you sign the register and, if you want it, take the Examiner badge for the next ten minutes.</div>
     </div>
 
     <div class="step">
@@ -523,6 +545,75 @@
 
 <div class="divider"></div>
 
+<!-- PATENT OFFICE -->
+<div class="wide-section">
+  <div class="desc-header">
+    <div class="section-eyebrow">The Counter</div>
+    <div class="section-title">The Patent Office</div>
+  </div>
+  <p style="text-align:center;font-size:12px;color:var(--text-dim);margin-bottom:8px;line-height:1.8;max-width:700px;margin-left:auto;margin-right:auto;">
+    The desk at the end of the line, where an invention stops being a drawing and becomes a filing. Two problems get solved here at once: the invention has to stay on the wall so the chain can continue, and it has to go home with the person who made it.
+  </p>
+
+  <div class="subhead">One Invention, Two Copies</div>
+  <div class="office-grid">
+    <div class="office">
+      <div class="office-kicker">Primary Method</div>
+      <h5>Carbonless Duplicate Forms</h5>
+      <p>The patent form is printed as a 2 or 3 part NCR set, the same paper a permit counter uses. Drawing on the top sheet presses everything through to the copy underneath. The original stays on the Chain Wall, the copy goes home, and the split is the bureaucratic gesture the whole workshop is making fun of. A third part gives me a file copy of every chain that ever ran.</p>
+      <div class="cost">Print shop · ordered ahead</div>
+    </div>
+    <div class="office">
+      <div class="office-kicker">Backup</div>
+      <h5>Trace Your Own Drawing</h5>
+      <p>The tracing paper is already on the table and they are already tracing. Two more minutes and they have made their invention twice, which is arguably the better souvenir.</p>
+      <div class="cost">Free · already in the kit</div>
+    </div>
+    <div class="office">
+      <div class="office-kicker">Backup</div>
+      <h5>Instant Camera</h5>
+      <p>A photo of the inventor holding the invention, stapled to the certificate. Kids treat a physical photo as more valuable than the drawing, and it captures the model, which no copy can.</p>
+      <div class="cost">About a dollar a shot</div>
+    </div>
+    <div class="office">
+      <div class="office-kicker">The Inversion</div>
+      <h5>Take the Card Instead</h5>
+      <p>The drawing stays because it belongs to the chain now. What goes home is the certificate and the Yes And card that was handed to them, in a stranger's handwriting. That card is proof somebody they never met asked them for something.</p>
+      <div class="cost">Free · and the strangest keepsake</div>
+    </div>
+  </div>
+
+  <div class="subhead">Approving the Invention</div>
+  <div class="office-grid">
+    <div class="office">
+      <div class="office-kicker">The Number</div>
+      <h5>Sequential Numbering Stamp</h5>
+      <p>A self inking stamp that advances on its own, so every invention gets a real serial number and no two match. The click is the sound of the workshop, and by the second hour people are lining up for it.</p>
+      <div class="cost">About twenty dollars</div>
+    </div>
+    <div class="office seal">
+      <div class="office-kicker">The Seal</div>
+      <h5>Hand Embosser</h5>
+      <p>The notary kind, with a custom die reading CAREtech Patent Office, Blue Sky Division. It leaves a raised seal you can feel with a thumb, it works through the duplicate copy as well as the original, and it is the most convincing object in the room. Expect everything in the building to get embossed.</p>
+      <div class="cost">About thirty dollars for the die</div>
+    </div>
+    <div class="office">
+      <div class="office-kicker">The Role</div>
+      <h5>The Examiner</h5>
+      <p>Somebody other than me approves it. Whoever filed last puts on the Examiner badge, sits at the desk for ten minutes, hears the next claim read aloud, asks one question, and stamps. Approval becomes theater instead of a craft step, and it puts a child in the seat that historically told these women no.</p>
+      <div class="cost">Free · and the point</div>
+    </div>
+    <div class="office">
+      <div class="office-kicker">The Ledger</div>
+      <h5>The Register</h5>
+      <p>One oversized book on the desk. Every inventor signs it under their serial number, next to the name of the person whose invention they built on. At the end of the day the register is the record of the whole afternoon, and it opens the next session already full.</p>
+      <div class="cost">One good book · reused every time</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
 <!-- VARIATIONS -->
 <div class="wide-section" id="variations">
   <div class="desc-header">
@@ -546,6 +637,7 @@
         <li>The claim is spoken out loud and a grownup writes it down word for word</li>
         <li>The demo is holding it up and saying what it does</li>
         <li>Yes And cards are dictated to a grownup, and usually say something about animals</li>
+        <li>They press the embosser themselves, with help, and it is the best part of the day</li>
       </ul>
     </div>
 
@@ -561,6 +653,7 @@
         <li>They write and sign the claim sentence themselves</li>
         <li>The demo takes one question from the audience</li>
         <li>Chains run long at this age, and they will keep coming back to check on theirs</li>
+        <li>This is the age that runs the Examiner desk best, and should be asked to</li>
       </ul>
     </div>
 
@@ -732,8 +825,10 @@
   </div>
   <div class="body-card">
     <ul class="includes-list">
-      <li>A signed and stamped Blue Sky patent certificate</li>
-      <li>Their invention drawing on a large patent form</li>
+      <li>A signed, numbered, and embossed Blue Sky patent certificate</li>
+      <li>The carbonless copy of their own invention drawing, identical to the one left on the wall</li>
+      <li>The Yes And card a stranger wrote for them, in that stranger's handwriting</li>
+      <li>Their serial number, and their line in the register</li>
       <li>Spare copies of the historic patent they started from, to keep cutting up at home</li>
       <li>The name and story of a woman inventor from their own county</li>
       <li>Their cardboard model, if it survives the walk to the car</li>
@@ -793,7 +888,10 @@
             <ul>
               <li>Patent copies at 8.5 x 11, dozens of each, in labeled stacks</li>
               <li>Blue Sky prompt card decks, one per table</li>
-              <li>Large blank patent forms and certificates for 80 people</li>
+              <li>Carbonless duplicate patent forms and certificates for 80 people</li>
+              <li>Sequential numbering stamp, hand embosser, and ink</li>
+              <li>Examiner badges and the register book</li>
+              <li>Instant camera and film</li>
               <li>Tracing paper, scissors, glue sticks, and the rest of the drawing and building materials</li>
               <li>Pink desk, pink baskets, worker badges, and the stamp</li>
               <li>Pink gaffer tape</li>
